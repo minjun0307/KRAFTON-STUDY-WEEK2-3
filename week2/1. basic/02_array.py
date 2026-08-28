@@ -37,12 +37,19 @@ def rotate_matrix_90(matrix):
 
 
 
+    n = len(matrix)
+
+
     #가진 배열들만큼 생성 [] < 대괄호생성
-    for i in range(0,len(matrix)):
+    for i in range(0,n):
         dummyList.append([])
-        for j in range(0,len(matrix)):  # 대괄호안에 있는 배열위치 지정
+        for j in range(0,n):  # 대괄호안에 있는 배열위치 지정
             dummyList[i].append(0)
-            # dummyList[i][j] = 
+
+
+    for i in range(n):
+        for j in range(n):
+            dummyList[j][n-1-i] = matrix[i][j]
             
 
 
@@ -70,7 +77,6 @@ def rotate_matrix_90(matrix):
     Returns:
         회전된 2차원 리스트
     """
-    n = len(matrix)
     
     # TODO: n x n 크기의 새로운 배열을 생성하세요 (0으로 초기화)
     pass
