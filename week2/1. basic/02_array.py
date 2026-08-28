@@ -32,6 +32,35 @@
 """
 
 def rotate_matrix_90(matrix):
+
+    dummyList = []
+
+
+
+    #가진 배열들만큼 생성 [] < 대괄호생성
+    for i in range(0,len(matrix)):
+        dummyList.append([])
+        for j in range(0,len(matrix)):  # 대괄호안에 있는 배열위치 지정
+            dummyList[i].append(0)
+            # dummyList[i][j] = 
+            
+
+
+
+    
+
+   
+
+    # for i in range(len(matrix)):
+    #     for j in zip(matrix[i]): 
+    #         dummyList[i].append(matrix[j][i])
+
+
+    #new_list = list(map(list, zip(*samp)))
+    # for i in range(len(samp)):
+    #     for j in range(len(samp[i])):
+    #         samp[j]
+    
     """
     2차원 배열을 시계방향으로 90도 회전
     
@@ -50,7 +79,7 @@ def rotate_matrix_90(matrix):
     # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
     pass
     
-    return rotated
+    return dummyList
 
 def print_matrix(matrix):
     """배열을 보기 좋게 출력하는 헬퍼 함수"""
