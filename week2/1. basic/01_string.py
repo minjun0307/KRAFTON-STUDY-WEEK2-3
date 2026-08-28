@@ -25,6 +25,31 @@
 """
 
 def is_palindrome(s):
+
+    
+
+    detectStr = s.isalnum()
+
+    if detectStr!=False:
+        lowerStr = s.lower()
+    elif detectStr != True:
+        for i in filter(str.isalpha, s):
+            lowerStr = i.lower()
+
+    lowerStr = s.lower()
+    detectStr = ''.join(char for char in lowerStr if char.isalnum())
+
+    if detectStr == detectStr[::-1]:
+        return True
+    else:
+        return False
+  
+
+    
+    # for i in range(len(lowerStr) // 2):
+
+       
+    
     """
     문자열이 회문인지 판별하는 함수
     
@@ -47,6 +72,7 @@ def is_palindrome(s):
 
 # 테스트 케이스
 if __name__ == "__main__":
+
     # 테스트 케이스 1
     test1 = "A man, a plan, a canal: Panama"
     result1 = is_palindrome(test1)
