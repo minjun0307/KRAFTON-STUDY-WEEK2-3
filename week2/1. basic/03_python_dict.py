@@ -32,6 +32,28 @@
 """
 
 def find_above_average_students(students):
+
+    above_average_students = list()
+    total = 0
+    keys = len(students)
+
+    
+    for std in students:
+        
+        total += std.get("score")
+       
+
+
+    average = total/keys
+
+
+    for st in students:
+        if st.get("score") >= average:
+            above_average_students.append(st.get("name"))
+
+
+    return average, above_average_students
+
     """
     평균 점수 이상인 학생들을 찾는 함수
     
@@ -50,7 +72,6 @@ def find_above_average_students(students):
     # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
     pass
     
-    return average, above_average_students
 
 # 테스트 케이스
 if __name__ == "__main__":
