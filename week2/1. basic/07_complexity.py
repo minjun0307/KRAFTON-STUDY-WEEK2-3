@@ -23,6 +23,7 @@
 """
 
 def find_duplicates_brute_force(nums):
+
     """
     방법1: 이중 반복문 사용
     시간 복잡도: O(n²)
@@ -30,6 +31,14 @@ def find_duplicates_brute_force(nums):
     """
     duplicates = []
     n = len(nums)
+
+    for i in range(0, n-1):  #i에서 n번 돌때
+        for j in range(i+1, n): #아래에서 j에서는 n 제곱번 돈다 걍 n 곱하기 n임 ㅇㅇ
+            if nums[i] == nums[j]:
+                if(nums[i] not in  duplicates):
+                    duplicates.append(nums[i])
+
+                    break
     
     # TODO: 이중 반복문으로 중복 찾기
     ## i번째 원소와 i+1 이후의 모든 원소를 비교
@@ -51,6 +60,15 @@ def find_duplicates_sorting(nums):
     pass
     
     duplicates = []
+
+    nums.sort()
+    for i in range(0, len(nums)-1):
+        if nums[i] == nums[i+1]:
+            if nums[i] != duplicates:
+                duplicates.append(nums[i])
+        
+
+    
     
     # TODO: 인접한 원소를 비교하여 중복 찾기
     # i와 i+1 원소가 같고, duplicates에 없으면 추가
@@ -66,6 +84,13 @@ def find_duplicates_hash(nums):
     """
     seen = set()
     duplicates = set()
+    for i in range(0, len(nums)):
+        if nums[i] in seen:
+            duplicates.add(nums[i])
+        else:
+            seen.add(nums[i])
+
+            
     
     # TODO: 각 원소를 순회하면서
     ## 이미 seen에 있으면 duplicates에 추가
