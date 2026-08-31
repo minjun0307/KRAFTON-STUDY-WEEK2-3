@@ -25,6 +25,10 @@
 """
 
 def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a%b)
     """
     유클리드 호제법을 사용한 최대공약수 계산
     
@@ -40,6 +44,10 @@ def gcd(a, b):
     pass
 
 def gcd_iterative(a, b):
+    while b:
+        r = a % b
+        a, b = b, r 
+    return a
     """
     반복문을 사용한 최대공약수 계산
     
@@ -61,12 +69,28 @@ def lcm(a, b):
         a, b: 두 양의 정수
     
     Returns:
-        최소공배수
+        최소공배수  
     """
+    return a*b // gcd(a, b)
+
     # TODO: LCM 계산
     pass
 
-def extended_gcd(a, b):
+def extended_gcd( a, b):
+
+    if b == 0:
+        return a, 1, 0
+
+    
+    # 재귀적으로 a%b를 호출하여 최대공약수와 이전 계수들을 받습니다
+    g, x1, y1 = extended_gcd(b, a % b)
+    
+    # 리턴받은 x1, y1을 바탕으로 현재 x, y를 계산합니다
+    x = y1
+    y = x1 - (a // b) * y1
+    
+    return g, x, y
+
     """
     확장 유클리드 호제법
     ax + by = gcd(a, b)를 만족하는 x, y를 찾음
@@ -93,6 +117,17 @@ def is_prime(n):
     Returns:
         소수이면 True, 아니면 False
     """
+
+    
+    for i in range(2, n):
+        if n%i == 0:
+            return False
+        elif n%i != 0: 
+            return True
+    return True
+            
+
+    
     # TODO: 소수 판별 구현
     # n이 2보다 작으면 False
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    

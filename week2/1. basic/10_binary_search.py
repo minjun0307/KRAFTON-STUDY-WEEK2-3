@@ -33,6 +33,7 @@ def binary_search(arr, target):
     Returns:
         target의 인덱스 (없으면 -1)
     """
+    
     left = 0
     right = len(arr) - 1
     
