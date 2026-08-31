@@ -35,6 +35,16 @@ def find_max_divide_conquer(arr, left, right):
     Returns:
         최댓값
     """
+    mid = (left+right)//2
+    if left == right:
+        return arr[left]
+   
+    LArr = find_max_divide_conquer(arr, left, mid)
+    RArr = find_max_divide_conquer(arr, mid+1, right)
+
+    return max(LArr, RArr)
+    
+    
     # TODO: base case - 원소가 하나면 그 값 반환
     pass
     
@@ -49,7 +59,11 @@ def find_max_divide_conquer(arr, left, right):
     
     # TODO: 둘 중 큰 값 반환
     pass
-
+def findMax(find1, find2):
+    if find1 > find2:
+        return find1
+    else:
+        return find2
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
