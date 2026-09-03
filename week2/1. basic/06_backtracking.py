@@ -127,14 +127,7 @@ def combinations(n: int, k: int) -> list:
       
 
     def backtrack(start: int, current_combination: list) -> None:
-        """
-        재귀(백트래킹) 헬퍼 함수.
-        
-
-        Args:
-            start: 이번에 시도해볼 수 있는 가장 작은 숫자
-            current_combination: 지금까지 골라 둔 숫자들 (탐색 중)
-        """
+      
         copycombination = list(current_combination)
         if len(current_combination) == k:
             result.append(copycombination)
