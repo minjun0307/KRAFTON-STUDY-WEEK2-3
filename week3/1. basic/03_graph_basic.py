@@ -40,6 +40,21 @@ def create_graph(vertices, edges, directed=False):
     Returns:
         그래프 딕셔너리
     """
+    graph = {}
+    
+    list = []
+    
+    for i in range(vertices):
+        graph[i] = []
+
+    for v, e in edges:
+        if not directed:
+            graph[e].append(v)
+            graph[v].append(e)
+
+        elif directed:
+            graph[v].append(e)
+
     # TODO: 빈 그래프 초기화
     pass
     
