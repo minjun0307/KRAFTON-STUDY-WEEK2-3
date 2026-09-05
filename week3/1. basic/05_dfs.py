@@ -31,6 +31,15 @@ DFS: [0, 1, 2, 3] (순서는 구현에 따라 다를 수 있음)
 """
 
 def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = []
+    visited.append(start)
+
+    for node in graph[start]:
+        if node not in visited:
+            dfs(graph, node, visited)
+
+    return visited
     """
     깊이 우선 탐색 (재귀)
     
@@ -52,7 +61,6 @@ def dfs(graph, start, visited=None):
     ## 방문하지 않은 정점이면 재귀 호출
     pass
     
-    return visited
 
 # 테스트 케이스
 if __name__ == "__main__":

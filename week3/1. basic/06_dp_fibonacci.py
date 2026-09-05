@@ -81,6 +81,15 @@ def fibonacci_memo(n, memo=None):
     Returns:
         n번째 피보나치 수
     """
+    if memo is None:
+        memo = {}
+        memo[0] = 0
+        memo[1] = 1
+
+    if n not in memo:
+        memo[n]=fibonacci_memo(n-1, memo)+fibonacci_memo(n-2, memo)
+    elif n in memo:
+        return memo[n]
     # TODO: memo가 None이면 빈 딕셔너리로 초기화
     pass
     
