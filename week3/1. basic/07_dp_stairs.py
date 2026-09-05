@@ -45,6 +45,14 @@ def climb_stairs(n):
     Returns:
         n번째 계단까지 오르는 방법의 수
     """
+
+    dp = [0]*100
+    dp[0] =1
+    dp[1] =1
+
+    for i in range(2,n+1):
+        dp[i] = dp[i-1] + dp[i-2]
+        dp.append(i)
     # TODO: 특별한 경우 처리
     pass
     
